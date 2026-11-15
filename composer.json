@@ -1,0 +1,45 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "funseco/admin-plugin",
+    "description": "Funseco admin chat commands (/admin ...)",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "funseco/core": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Funseco\\Admin\\": "src/",
+            "Funseco\\Admin\\Tests\\Support\\": "tests/Support/"
+        }
+    },
+    "require-dev": {
+        "funseco/jukebox-plugin": "@dev",
+        "funseco/rankings-plugin": "@dev",
+        "funseco/records-plugin": "@dev",
+        "funseco/votes-plugin": "@dev",
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^11.5.3"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Funseco\\Admin\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "funseco": {
+            "id": "admin",
+            "name": "Admin",
+            "description": "admin chat commands (/admin ...)",
+            "provider": "Funseco\\Admin\\AdminServiceProvider",
+            "locked": true
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
