@@ -45,12 +45,12 @@ class AddLocalCommand extends AdminCommand
         $path = self::FOLDER . $found;
         \Server::query()->CheckChallengeForCurrentServerParams($path, function ($result, $fault = null) use ($player, $path, $found) {
             if ($fault !== null) {
-                $this->tell($player, '{#server}> {#emotic}Track {#highlite}{1}{#emotic} ignored: {#error}{2}', $found, $fault);
+                $this->tell($player, '{#server}> {#orange}Track {#highlite}{1}{#orange} ignored: {#error}{2}', $found, $fault);
                 return;
             }
             \Server::query()->AddChallenge($path, function ($result, $fault = null) use ($player, $path, $found) {
                 if ($fault !== null || !self::ok($result)) {
-                    $this->tell($player, '{#server}> {#emotic}Track {#highlite}{1}{#emotic} ignored: {#error}{2}', $found, (string) $fault);
+                    $this->tell($player, '{#server}> {#orange}Track {#highlite}{1}{#orange} ignored: {#error}{2}', $found, (string) $fault);
                     return;
                 }
                 $this->added($player, $path);

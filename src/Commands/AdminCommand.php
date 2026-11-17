@@ -138,19 +138,19 @@ abstract class AdminCommand implements Command, Guarded, Described
     protected function withTrack(Player $admin, string $arg, callable $then): void
     {
         if (!ctype_digit($arg) || (int) $arg < 1) {
-            $this->tell($admin, '{#server}> {#emotic}You have to include a Track_ID, e.g {#highlite}/jukebox 12{#emotic} - Type {#highlite}/jukebox help{#emotic} for more info.');
+            $this->tell($admin, '{#server}> {#orange}You have to include a Track_ID, e.g {#highlite}/jukebox 12{#orange} - Type {#highlite}/jukebox help{#orange} for more info.');
             return;
         }
 
         $lists = app(LastTrackList::class);
         if (!$lists instanceof NullLastTrackList) {
             if ($lists->count($admin) === 0) {
-                $this->tell($admin, '{#server}> {#emotic}Use {#highlite}/list{#emotic} first - Type {#highlite}/list help{#emotic} for more info.');
+                $this->tell($admin, '{#server}> {#orange}Use {#highlite}/list{#orange} first - Type {#highlite}/list help{#orange} for more info.');
                 return;
             }
             $entry = $lists->at($admin, (int) $arg);
             if (!$entry) {
-                $this->tell($admin, '{#server}> {#emotic}Track_ID not found - Type {#highlite}/list{#emotic} to see all tracks.');
+                $this->tell($admin, '{#server}> {#orange}Track_ID not found - Type {#highlite}/list{#orange} to see all tracks.');
                 return;
             }
             $then(['FileName' => $entry['file'], 'Name' => $entry['name'], 'UId' => $entry['uid']]);
@@ -160,7 +160,7 @@ abstract class AdminCommand implements Command, Guarded, Described
         \Server::query()->GetChallengeList(5000, 0, function ($result) use ($admin, $arg, $then) {
             $track = ($result[0] ?? [])[(int) $arg - 1] ?? null;
             if (!$track) {
-                $this->tell($admin, '{#server}> {#emotic}Track_ID not found - Type {#highlite}/list{#emotic} to see all tracks.');
+                $this->tell($admin, '{#server}> {#orange}Track_ID not found - Type {#highlite}/list{#orange} to see all tracks.');
                 return;
             }
             $then($track);

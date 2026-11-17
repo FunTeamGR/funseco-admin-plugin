@@ -28,7 +28,7 @@ return [
     'bannedips_file' => storage_path('app/bannedips.json'),
 
     // /admin wall: colour of the message lines (XAseco welcome colour).
-    'wall_colour' => '{#welcome}',
+    'wall_colour' => '{#error}',
 
     // /admin unlock <pwd>. Empty (the default) accepts no password.
     'lock_password' => env('ADMIN_LOCK_PASSWORD', ''),
@@ -51,5 +51,5 @@ return [
     ],
 
     // XAseco config.xml <warning> shown by /admin warn; {br} = new line.
-    'warning' => '$s{#welcome}This is an administrative warning.{br}{br}$gWhatever you wrote is against our server\'s{br}policy. Not respecting other players, or{br}using offensive language might result in a{br}{#welcome}kick, or ban {#message}the next time.{br}{br}$gThe server administrators.',
+    'warning' => '$s{#error}This is an administrative warning.{br}{br}$gWhatever you wrote is against our server\'s{br}policy. Not respecting other players, or{br}using offensive language might result in a{br}{#error}kick, or ban {#message}the next time.{br}{br}$gThe server administrators.',
 ];

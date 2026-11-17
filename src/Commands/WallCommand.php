@@ -23,7 +23,7 @@ class WallCommand extends AdminCommand
             return;
         }
 
-        $colour = (string) config('admin.wall_colour', '{#welcome}');
+        $colour = (string) config('admin.wall_colour', '{#error}');
         $rows = array_map(fn ($line) => [$colour . $line], explode("\n", wordwrap($text, self::WRAP, "\n", true)));
         $header = '{#black}' . $this->title($player) . ' ' . $this->nick($player) . '$z :';
 

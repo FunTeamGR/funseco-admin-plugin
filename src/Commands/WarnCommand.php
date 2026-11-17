@@ -17,7 +17,7 @@ class WarnCommand extends AdminCommand
         }
 
         $lines = array_map(fn ($line) => [$line], preg_split('/{br}/', config('admin.warning')));
-        Window::show($target, '{#welcome}WARNING:', $lines, [0.8], ['Icons64x64_1', 'TV']);
+        Window::show($target, '{#error}WARNING:', $lines, [0.8], ['Icons64x64_1', 'TV']);
 
         $this->announce($this->by($player) . 'warned {#highlite}{1}$z$s{#admin} !', $this->nick($target));
     }

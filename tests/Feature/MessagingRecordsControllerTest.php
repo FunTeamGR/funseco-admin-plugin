@@ -181,7 +181,7 @@ class MessagingRecordsControllerTest extends AdminTestCase
         $this->chat('/admin prunerecs 1', $master);
         $this->assertToldTo('master', '{#server}> {#error}Can\'t find ChallengeId for track: {#highlite}$i Nope / zz');
         $this->chat('/admin prunerecs 5', $master);
-        $this->assertToldTo('master', '{#server}> {#emotic}Track_ID not found - Type {#highlite}/list{#emotic} to see all tracks.');
+        $this->assertToldTo('master', '{#server}> {#orange}Track_ID not found - Type {#highlite}/list{#orange} to see all tracks.');
     }
 
     public function test_delrec_and_prunerecs_are_master_only_by_config()

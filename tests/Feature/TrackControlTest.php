@@ -168,7 +168,7 @@ class TrackControlTest extends AdminTestCase
         $this->shown();
 
         $this->chat('/admin remove 9');
-        $this->assertToldTo('boss', '{#server}> {#emotic}Track_ID not found - Type {#highlite}/list{#emotic} to see all tracks.');
+        $this->assertToldTo('boss', '{#server}> {#orange}Track_ID not found - Type {#highlite}/list{#orange} to see all tracks.');
 
         $this->chat('/admin remove');
         $this->assertStringContainsString('You have to include a Track_ID', end($this->query->calls)[1][0]);
@@ -179,7 +179,7 @@ class TrackControlTest extends AdminTestCase
     {
         $this->chat('/admin remove 1');
 
-        $this->assertToldTo('boss', '{#server}> {#emotic}Use {#highlite}/list{#emotic} first - Type {#highlite}/list help{#emotic} for more info.');
+        $this->assertToldTo('boss', '{#server}> {#orange}Use {#highlite}/list{#orange} first - Type {#highlite}/list help{#orange} for more info.');
         $this->assertNotContains('RemoveChallenge', array_column($this->query->calls, 0));
     }
 

@@ -222,7 +222,7 @@ class ServerRotationPlayersTest extends AdminTestCase
         file_put_contents($this->tracks . '/Challenges/Downloaded/Fine.Challenge.gbx', 'x');
         $this->query->faults['CheckChallengeForCurrentServerParams'] = 'wrong environment';
         $this->chat('/admin addlocal FINE');
-        $this->assertToldTo('boss', '{#server}> {#emotic}Track {#highlite}Fine.Challenge.gbx{#emotic} ignored: {#error}wrong environment');
+        $this->assertToldTo('boss', '{#server}> {#orange}Track {#highlite}Fine.Challenge.gbx{#orange} ignored: {#error}wrong environment');
 
         unset($this->query->faults['CheckChallengeForCurrentServerParams']);
         $this->query->responses['CheckChallengeForCurrentServerParams'] = [true];
